@@ -1,0 +1,13 @@
+---
+- name: Deploy Nginx Homepage from Template
+  hosts: docker_nodes
+  become: yes
+
+  tasks:
+    - name: Create index.html from template
+      template:
+        src: ../templates/index.html.j2
+        dest: /var/www/html/index.html
+        owner: www-data
+        group: www-data
+        mode: '0644'

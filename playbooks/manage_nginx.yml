@@ -1,0 +1,17 @@
+---
+- name: Install and Manage Nginx Service
+  hosts: docker_nodes
+  become: yes
+
+  tasks:
+    - name: Ensure nginx package is present
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes
+
+    - name: Ensure nginx service is started and enabled
+      service:
+        name: nginx
+        state: started
+        enabled: yes

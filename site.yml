@@ -1,0 +1,7 @@
+---
+- name: Configure All Servers
+  hosts: docker_nodes
+  become: yes
+
+  roles:
+    - nginx_role
